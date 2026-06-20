@@ -1,0 +1,14 @@
+/* Global base — mirrors the handoff index.html inline styles. */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--ground-1); }
+body {
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+#root { min-height: 100vh; }
+::selection { background: var(--accent-soft); }
+a:hover { color: var(--fg-1); }
+/* dark scrollbars to match the night-line-map ground */
+* { scrollbar-color: var(--border-2) transparent; }

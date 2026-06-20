@@ -1,0 +1,39 @@
+/* ── Spacing, radii, layout ───────────────────────────────
+   4px base grid — mirrors the subway-canvas grid. */
+
+:root {
+  /* Spacing scale */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;    /* chips, inputs, buttons */
+  --radius-md: 10px;   /* cards, panels */
+  --radius-lg: 14px;   /* large surfaces, modals */
+  --radius-xl: 20px;
+  --radius-pill: 999px;   /* line buttons, badges, roundel */
+
+  /* Grid (subway canvas) */
+  --grid-cell: 24px;       /* background grid pitch */
+  --lane-gap: 56px;        /* vertical spacing between lines/lanes */
+  --line-stroke: 6px;      /* connection-line thickness */
+  --station-size: 18px;    /* station marker diameter */
+  --interchange-size: 20px;/* diamond marker */
+
+  /* Layout */
+  --panel-width: 340px;    /* left input panel */
+  --container-max: 1200px; /* marketing content width */
+  --header-height: 60px;
+}

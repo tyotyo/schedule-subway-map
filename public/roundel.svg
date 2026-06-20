@@ -1,0 +1,7 @@
+<svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schedule Subway Map roundel">
+  
+  <circle cx="50" cy="50" r="35" stroke="#3D8BFF" stroke-width="11"></circle>
+  <rect x="2" y="43" width="96" height="14" rx="3" fill="#3D8BFF"></rect>
+  
+  <rect x="40.5" y="40.5" width="19" height="19" rx="4" transform="rotate(45 50 50)" fill="#0D1117" stroke="#E9EFF6" stroke-width="3"></rect>
+</svg>

@@ -1,0 +1,59 @@
+/* ── Colors ───────────────────────────────────────────────
+   Dark transit-map ground (GitHub-dark inspired neutrals)
+   + a categorical 5-line palette + gamified accents.
+   Night-line-map mood: deep ground, vivid lines. */
+
+:root {
+  /* ── Neutral ground (dark) ── */
+  --ground-0:  #0A0D12;  /* deepest — page void */
+  --ground-1:  #0D1117;  /* app background */
+  --ground-2:  #11161D;  /* canvas / sunken */
+  --ground-3:  #161B22;  /* card / panel surface */
+  --ground-4:  #1C232C;  /* elevated surface, inputs */
+  --ground-5:  #232B35;  /* hover surface */
+  --grid-line: #1B222B;  /* subway-canvas grid */
+  --border-1:  #2A323C;  /* default border / hairline */
+  --border-2:  #3A434F;  /* strong border, focus ring track */
+
+  /* ── Foreground / text ── */
+  --fg-1: #E9EFF6;  /* primary text */
+  --fg-2: #AEB9C6;  /* secondary text */
+  --fg-3: #76828F;  /* muted / captions */
+  --fg-4: #515C68;  /* disabled / placeholder */
+  --fg-on-accent: #0A0D12; /* text on bright line/accent fills */
+
+  /* ── Brand accent (interactive blue = the "main line") ── */
+  --accent:       #3D8BFF;
+  --accent-hover: #5C9DFF;
+  --accent-press: #2E6FE0;
+  --accent-soft:  rgba(61, 139, 255, 0.14);
+  --accent-ring:  rgba(61, 139, 255, 0.45);
+
+  /* ── Categorical line palette (5) — stations & lines ── */
+  --line-red:    #FF5A5F;
+  --line-blue:   #3D8BFF;
+  --line-lime:   #9EE34F;
+  --line-yellow: #FFC94D;
+  --line-purple: #B47CFF;
+
+  /* soft tints (12% on ground) for chips/backgrounds */
+  --line-red-soft:    rgba(255, 90, 95, 0.14);
+  --line-blue-soft:   rgba(61, 139, 255, 0.14);
+  --line-lime-soft:   rgba(158, 227, 79, 0.14);
+  --line-yellow-soft: rgba(255, 201, 77, 0.14);
+  --line-purple-soft: rgba(180, 124, 255, 0.14);
+
+  /* ── Gamified / semantic ── */
+  --success:      #3FB950;  /* streaks, "on track", commits */
+  --success-soft: rgba(63, 185, 80, 0.15);
+  --warning:      #FFC94D;
+  --warning-soft: rgba(255, 201, 77, 0.15);
+  --danger:       #FF5A5F;  /* conflicts, delete, missed */
+  --danger-soft:  rgba(255, 90, 95, 0.15);
+  --info:         #3D8BFF;
+  --info-soft:    rgba(61, 139, 255, 0.15);
+
+  /* signature interchange marker (time-conflict diamond) */
+  --interchange-fill:   #11161D;
+  --interchange-stroke: #E9EFF6;
+}

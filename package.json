@@ -1,0 +1,21 @@
+{
+  "name": "schedule-subway-map",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "하루를 노선도로 — 일정=역, 시간=노선, 충돌=환승역. 깃 챌린지 AI 해커톤 출품작.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^0.460.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}
