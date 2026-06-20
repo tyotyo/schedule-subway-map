@@ -1,7 +1,7 @@
 // ScheduleApp — top-level Schedule Subway Map interface: state (events,
 // add/delete/sample/clear), top bar, map header with stat badges, legend,
 // presentation-mode + hour-grid toggles.
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Roundel } from "../components/transit/Roundel.jsx";
 import { Button } from "../components/core/Button.jsx";
 import { IconButton } from "../components/core/IconButton.jsx";
@@ -11,6 +11,7 @@ import { LegendItem } from "../components/transit/LegendItem.jsx";
 import { StreakBadge } from "../components/transit/StreakBadge.jsx";
 import { Icon } from "../lib/Icon.jsx";
 import { GitMark } from "../components/brand/GitMark.jsx";
+import { exportMapPng } from "../lib/exportMap.js";
 import { InputPanel } from "./InputPanel.jsx";
 import { SubwayMap, LINES } from "./SubwayMap.jsx";
 
@@ -73,6 +74,20 @@ export function ScheduleApp({ onHome }) {
   const [line, setLine] = useState("blue");
   const [present, setPresent] = useState(false);
   const [hourGrid, setHourGrid] = useState(false);
+  const [exporting, setExporting] = useState(false);
+  const mapRef = useRef(null);
+
+  const exportMap = async () => {
+    const svg = mapRef.current && mapRef.current.querySelector("svg");
+    if (!svg || events.length === 0 || exporting) return;
+    setExporting(true);
+    try {
+      const stamp = new Date().toISOString().slice(0, 10);
+      await exportMapPng(svg, { filename: `오늘의-노선도-${stamp}.png` });
+    } finally {
+      setExporting(false);
+    }
+  };
 
   const addStation = () => {
     if (!title.trim() || !time) return;
@@ -116,8 +131,14 @@ export function ScheduleApp({ onHome }) {
           <IconButton label={present ? "패널 보이기" : "발표 모드"} variant="ghost" onClick={() => setPresent((v) => !v)}>
             <Icon name={present ? "panel-left-open" : "maximize"} size={16} />
           </IconButton>
-          <Button variant="secondary" size="sm" leftIcon={<Icon name="download" size={14} />}>
-            내보내기
+          <Button
+            variant="secondary"
+            size="sm"
+            leftIcon={<Icon name="download" size={14} />}
+            onClick={exportMap}
+            disabled={exporting || events.length === 0}
+          >
+            {exporting ? "내보내는 중…" : "PNG 내보내기"}
           </Button>
         </div>
       </header>
@@ -169,6 +190,7 @@ export function ScheduleApp({ onHome }) {
           </div>
 
           <div
+            ref={mapRef}
             style={{
               backgroundColor: "var(--ground-2)",
               backgroundImage: "var(--canvas-grid)",
