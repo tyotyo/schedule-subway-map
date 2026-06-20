@@ -1,3 +1,12 @@
+/* "git" community brand accents (retro pixel pink + gold from the
+   5th-anniversary sticker pack / 정모 poster). Used only on the community
+   attribution bits — the transit design system keeps its own tokens. */
+:root {
+  --git-pink: #EC1E79;
+  --git-pink-soft: rgba(236, 30, 121, 0.16);
+  --git-yellow: #F5C518;
+}
+
 /* Global base — mirrors the handoff index.html inline styles. */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; background: var(--ground-1); }
@@ -12,3 +21,8 @@ body {
 a:hover { color: var(--fg-1); }
 /* dark scrollbars to match the night-line-map ground */
 * { scrollbar-color: var(--border-2) transparent; }
+
+/* retro arcade blink for the git ribbon's "INSERT COIN" cursor */
+@keyframes git-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+.git-blink { animation: git-blink 1s steps(1) infinite; }
+@media (prefers-reduced-motion: reduce) { .git-blink { animation: none; } }

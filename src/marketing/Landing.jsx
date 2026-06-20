@@ -8,6 +8,7 @@ import { Card } from "../components/core/Card.jsx";
 import { StreakBadge } from "../components/transit/StreakBadge.jsx";
 import { LegendItem } from "../components/transit/LegendItem.jsx";
 import { Icon } from "../lib/Icon.jsx";
+import { GitMark } from "../components/brand/GitMark.jsx";
 import { SubwayMap } from "../app/SubwayMap.jsx";
 
 const DEMO = [
@@ -61,10 +62,55 @@ const nav = {
   zIndex: 20,
 };
 const navLink = { fontSize: 14, color: "var(--fg-2)", textDecoration: "none", fontWeight: 500 };
+const ribbon = { background: "var(--git-pink)", color: "#0A0D12" };
+const ribbonInner = {
+  maxWidth: 1200,
+  margin: "0 auto",
+  padding: "7px 32px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  gap: 16,
+  fontFamily: "var(--font-mono)",
+  fontSize: 12,
+  letterSpacing: "0.04em",
+  textTransform: "uppercase",
+  flexWrap: "wrap",
+};
+const gitPill = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 7,
+  padding: "4px 11px",
+  background: "var(--git-pink-soft)",
+  color: "var(--git-pink)",
+  border: "1px solid var(--git-pink)",
+  borderRadius: "var(--radius-pill)",
+  fontFamily: "var(--font-mono)",
+  fontSize: 12,
+  fontWeight: 600,
+  letterSpacing: "0.02em",
+  lineHeight: 1,
+  whiteSpace: "nowrap",
+};
 
 export function Landing({ onLaunch }) {
   return (
     <div style={{ background: "var(--ground-1)", color: "var(--fg-1)", fontFamily: "var(--font-sans)", minHeight: "100vh" }}>
+      {/* git community announcement ribbon — retro pink, INSERT COIN energy */}
+      <div style={ribbon}>
+        <div style={ribbonInner}>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+            <GitMark size={14} color="#0A0D12" />
+            <span style={{ fontWeight: 700 }}>git</span>
+            <span style={{ opacity: 0.85 }}>5TH ANNIVERSARY · 직장인 개발자 커뮤니티 정모 출품작</span>
+          </span>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 6, opacity: 0.9 }}>
+            <span className="git-blink">▮</span> INSERT COIN
+          </span>
+        </div>
+      </div>
+
       {/* Nav */}
       <header style={nav}>
         <Roundel size={30} withWordmark sub="" />
@@ -82,9 +128,15 @@ export function Landing({ onLaunch }) {
       {/* Hero */}
       <section style={{ maxWidth: 1200, margin: "0 auto", padding: "64px 32px 40px", display: "grid", gridTemplateColumns: "1.05fr 1fr", gap: 48, alignItems: "center" }}>
         <div>
-          <Badge tone="accent" dot>
-            깃 챌린지 · AI 해커톤 제출작
-          </Badge>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+            <span style={gitPill}>
+              <GitMark size={12} color="var(--git-pink)" />
+              git · 직장인 개발자 커뮤니티
+            </span>
+            <Badge tone="accent" dot>
+              5th Anniversary · AI 해커톤 출품작
+            </Badge>
+          </div>
           <h1 style={{ fontSize: 56, fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.05, margin: "20px 0 18px" }}>
             하루를
             <br />
@@ -154,11 +206,18 @@ export function Landing({ onLaunch }) {
 
       {/* Footer */}
       <footer style={{ borderTop: "1px solid var(--border-1)", padding: "26px 32px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
           <Roundel size={24} />
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--fg-3)" }}>Schedule Subway Map · 깃 챌린지</span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--fg-3)" }}>Schedule Subway Map</span>
+          <span style={{ width: 1, height: 16, background: "var(--border-2)" }} />
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+            <GitMark size={15} color="var(--git-pink)" />
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--fg-2)" }}>
+              <b style={{ color: "var(--fg-1)" }}>git</b> 직장인 개발자 모임 커뮤니티에서 만든 도구 · 5th Anniversary 정모
+            </span>
+          </span>
           <div style={{ flex: 1 }} />
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--fg-4)" }}>© 2026</span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--fg-4)" }}>© 2026 git community</span>
         </div>
       </footer>
     </div>

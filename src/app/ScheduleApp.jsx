@@ -10,6 +10,7 @@ import { Card } from "../components/core/Card.jsx";
 import { LegendItem } from "../components/transit/LegendItem.jsx";
 import { StreakBadge } from "../components/transit/StreakBadge.jsx";
 import { Icon } from "../lib/Icon.jsx";
+import { GitMark } from "../components/brand/GitMark.jsx";
 import { InputPanel } from "./InputPanel.jsx";
 import { SubwayMap, LINES } from "./SubwayMap.jsx";
 
@@ -48,6 +49,22 @@ const mapHeader = {
   padding: "16px 20px",
 };
 const legendBar = { display: "flex", alignItems: "center", gap: 22, flexWrap: "wrap", padding: "14px 20px" };
+const gitChip = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 6,
+  marginLeft: 10,
+  padding: "4px 10px",
+  background: "var(--git-pink-soft)",
+  color: "var(--git-pink)",
+  border: "1px solid var(--git-pink)",
+  borderRadius: "var(--radius-pill)",
+  fontFamily: "var(--font-mono)",
+  fontSize: 11,
+  letterSpacing: "0.04em",
+  lineHeight: 1,
+  whiteSpace: "nowrap",
+};
 
 export function ScheduleApp({ onHome }) {
   const [events, setEvents] = useState(SAMPLE);
@@ -85,6 +102,11 @@ export function ScheduleApp({ onHome }) {
           title="홈으로"
         >
           <Roundel size={30} withWordmark sub="" wordmark="Subway Map" />
+        </span>
+        <span style={gitChip} title="git 직장인 개발자 모임 커뮤니티에서 쓰는 도구">
+          <GitMark size={11} color="var(--git-pink)" />
+          <span style={{ fontWeight: 600 }}>git</span>
+          <span style={{ opacity: 0.8 }}>커뮤니티</span>
         </span>
         <div style={{ flex: 1 }} />
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
